@@ -1,0 +1,305 @@
+.widget-wrapper{
+    border-radius: 12px;
+}
+
+.parking-analytics_widget{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: inline-flex;
+    color: #000;
+    position: relative;
+    // background: #0000002E;
+    // filter: blur(2px);
+    
+
+    // &:after{
+    //     content: '';
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     background: #0000002E;
+    //     // filter: blur(2px);
+    // } 
+
+    .uxp-widget-title-bar{
+        position: absolute;
+        top: 1em;
+        left: 0em;
+        width: 100%;
+        background: transparent;
+        z-index: 1;
+
+        .title-section{
+            background-color: #fff;
+            padding: 10px 10px 10px 10px;
+            border-radius: 5px;
+        }
+
+        .day_toggle{
+            .uxp-toggle-filter { 
+                padding: 10px;
+                background-color: #fff; 
+                border-radius: 5px;
+            }
+        }
+
+    }
+
+    .parking-content{
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        .parking-slot{
+            display: inline-block;
+            position: absolute;
+            bottom: 5em;
+            // right: 1em;
+
+            h4{
+                font-size: 2em;
+                margin: 0;
+                padding: 0; 
+                font-weight: normal; 
+            }
+            p{
+                font-size: 1em;
+                padding: 6px 0 0 0;
+                margin: 0; 
+                text-transform: uppercase; 
+            } 
+        }
+
+
+        .parking-lft{
+            display: inline-block;
+            // width: 20%;
+            // background-color: #2F4F83;
+            height: 100%;
+            border-radius: 12px 0 0 12px;
+            position: relative;
+
+            .parking-slot{ 
+                right: 1em;
+    
+                h4{
+                    color: #fff;
+                    text-align: right;
+                }
+                p{
+                    color: #fff;
+                    text-align: right;
+                } 
+            }
+        }
+
+        .parking-vehicle{ 
+           
+            border-radius: 50%;
+            width: 8em;
+            height: 8em;
+            position: absolute;
+            right: -4em;
+            z-index: 1;
+            top: 10em;
+
+            .vehicle-icon{  
+                width: 3em;
+                height: 3em;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain; 
+                transform: translate(-50%, -50%);
+                left: 50%;
+                top: 50%;
+                position: absolute;
+            }
+
+        }
+
+        .parking-rgt{
+            display: inline-block;
+            // width: 80%;
+            // background-color: #FDDD70;
+            height: 100%;
+            border-radius: 0px 12px 12px 0;
+            position: relative;
+
+            .parking-slot{ 
+                left: 1em;
+    
+                h4{
+                    color: #000000;
+                    text-align: left;
+                }
+                p{
+                    color: #000000;
+                    text-align: left;
+                } 
+            }
+        }
+
+        &.parking-car-content{
+
+            .parking-lft{ 
+                width: 20%;
+                background-color: #2F4F83;   
+            }
+            .parking-rgt{ 
+                width: 80%;
+                background-color: #FDDD70;  
+            }
+
+            .parking-vehicle{  
+                background-color: #000000; 
+                .vehicle-icon{   
+                    background-image: url(/images/car-icon.svg); 
+                } 
+            }
+
+            &.parking-car-content_toggle{
+               
+                .parking-lft{ 
+                    width: 70%;  
+                }
+                .parking-rgt{ 
+                    width: 30%; 
+                    background-color: #FF6464;
+                } 
+                .parking-vehicle{  
+                    .vehicle-icon{   
+                        width: 4.5em;
+                        height: 4.5em;  
+                    } 
+                } 
+            }
+        }
+
+        &.parking-bike-content{
+
+            .parking-vehicle{   
+                background-color: #ffffff;
+                .vehicle-icon{   
+                    background-image: url(/images/bike-icon.svg); 
+                } 
+            }
+
+            .parking-lft{ 
+                width: 50%;
+                background-color: #70D7FD; 
+
+                .parking-slot{   
+                    h4{
+                        color: #000000; 
+                    }
+                    p{
+                        color: #000000; 
+                    } 
+                }
+            }
+            .parking-rgt{ 
+                width: 50%;
+                background-color: #000000; 
+                .parking-slot{   
+                    h4{
+                        color: #ffffff; 
+                    }
+                    p{
+                        color: #ffffff; 
+                    } 
+                }
+            } 
+
+            &.parking-bike-content_toggle{
+                cursor: pointer;
+                .parking-lft{ 
+                    width: 75%;   
+                }
+                .parking-rgt{ 
+                    width: 25%;  
+                    background-color: #FF6464;
+                } 
+                .parking-vehicle{  
+                    .vehicle-icon{   
+                        width: 4.5em;
+                        height: 4.5em; 
+                        transform: rotateY(180deg);
+                        left: 25%;
+                        top: 25%;
+                    } 
+                } 
+            }
+        }
+
+       
+
+
+
+
+
+
+        .toggle-switch{
+            position: absolute;
+            bottom: 1em;
+            right: 1em; 
+
+            .uxp-form-checkbox { 
+                
+                .checkbox-placeholder {
+                    width: 35px;
+                    height: 3px;
+                    background: #424242;
+                    .icon {
+                        display: none;
+                    }
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 2px;
+                        transform: translateY(-50%);
+                        width: 15px;
+                        height: 15px;
+                        z-index: 1;
+                        border-radius: 50%;
+                        background-color: #424242;
+                        --webkit-transition: all 0.7s cubic-bezier(1, -0.39, 1, 1.01);
+                        transition: all 0.7s cubic-bezier(1, -0.39, 1, 1.01);
+                    }
+            
+                    &.checked{
+                        background-image: none;
+                        background: #42424240;
+                        &:before {
+                            top: 50%;
+                            right: 2px;
+                            transform: translate(100%, -50%);
+                        }
+                    }
+                } 
+            }
+
+            .showcase-checkbox {
+                width: 100% !important;
+                padding: 2px 17px;
+                border-radius: 20px;
+
+                .uxp-form-checkbox{
+                    label { 
+                        padding: 0px 0;
+                        font-size: 10px; 
+                        margin-bottom: 0;
+                        color: #424242; 
+                    }
+                }
+            } 
+            
+        }
+    }
+
+}
+
