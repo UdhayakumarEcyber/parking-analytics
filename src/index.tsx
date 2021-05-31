@@ -12,31 +12,31 @@ interface IParkingProps{
     uxpContext?: IContextProvider;
     isActive: string;
 } 
+
  
+ export const Parkingcar_Widget:React.FunctionComponent<IParkingProps> = (props) =>  {   
 
-export const Parkingcar_Widget:React.FunctionComponent<IParkingProps> = (props) =>  {    
-
-    let [toggleFilterValue, setToggleFilterValue] = React.useState<string>("Now"); 
-
+    let [toggleFilterValue, setToggleFilterValue] = React.useState<string>("Now");  
     let [checkedCheckState, setCheckedCheckState] = React.useState<boolean>(true);
 
     const onChangeCheckbox = (checked: boolean) => {
         setCheckedCheckState(checked)
     } 
 
-    const [isActive, setActive] = useState(false);
-
+    const [isActive, setActive] = useState(false); 
     const toggleClass = () => {
-      setActive(!isActive);
+      setActive(!isActive); 
     };
 
-//   const Title = () => {
-//     const [title, setTitle] = useState("20");
- 
-//     return <h4 onClick={() => setTitle("100")}>{title}</h4>;
-//  } 
- 
- 
+    let carparkoccupancy = '20'; 
+    let carparkavailabe = '120'; 
+    let className = "parking-content parking-car-content"
+   
+    if (isActive) {
+       carparkoccupancy = '100';
+       carparkavailabe = '20'; 
+       className += ' parking-car-content_toggle';
+    } 
    
     return  <>
 
@@ -44,6 +44,7 @@ export const Parkingcar_Widget:React.FunctionComponent<IParkingProps> = (props) 
 
         <div className="parking-analytics_widget">
 
+       
             <TitleBar icon={ParkingIcon} title={'Parking Analytics'}>
 
                 <div className="day_toggle"> 
@@ -65,21 +66,20 @@ export const Parkingcar_Widget:React.FunctionComponent<IParkingProps> = (props) 
 
         {/* <div className="parking-content parking-car-content">   */}
 
-        <div className={`parking-content parking-car-content ${isActive ? 'parking-car-content_toggle': null}`} onClick={toggleClass}>
+        {/* <div className={`parking-content parking-car-content ${isActive ? 'parking-car-content_toggle': null}`} onClick={toggleClass}> */}
   
+        <div className={className} onClick={toggleClass}>
+
                 <div className="parking-lft">
 
-                    <div className="parking-slot"> 
-
-                    {/* <Title /> */}
-                        <h4>20</h4>
-                        <p>occupied</p> 
-
+                    <div className="parking-slot">  
+                        <h4>{carparkoccupancy}</h4> 
+                        <p>occupied</p>  
                     </div> 
 
 
                     <div className="parking-vehicle">
-                            <div className="vehicle-icon"></div> 
+                         <div className="vehicle-icon"></div> 
                     </div> 
 
                 </div>
@@ -87,7 +87,7 @@ export const Parkingcar_Widget:React.FunctionComponent<IParkingProps> = (props) 
                 <div className="parking-rgt">
 
                     <div className="parking-slot"> 
-                        <h4>120</h4>
+                        <h4>{carparkavailabe}</h4>
                         <p>Available</p> 
                     </div> 
 
@@ -114,30 +114,35 @@ export const Parkingcar_Widget:React.FunctionComponent<IParkingProps> = (props) 
 
 
     
-export const Parkingbike_Widget:React.FunctionComponent<IParkingProps> = (props) =>  {   
-
+export const Parkingbike_Widget:React.FunctionComponent<IParkingProps> = (props) =>  {    
  
-    let [toggleFilterValue, setToggleFilterValue] = React.useState<string>("Now"); 
- 
-   
+    let [toggleFilterValue, setToggleFilterValue] = React.useState<string>("Now");  
      let [checkedCheckState, setCheckedCheckState] = React.useState<boolean>(true);
  
      const onChangeCheckbox = (checked: boolean) => {
          setCheckedCheckState(checked)
      }
 
-     const [isActive, setActive] = useState(false);
-
+     const [isActive, setActive] = useState(false); 
      const toggleClass = () => {
-       setActive(!isActive);
-     };
+      setActive(!isActive); 
+    };
+
+    let bikeparkoccupancy = '11'; 
+    let bikeparkavailabe = '22'; 
+    let className = "parking-content parking-bike-content"
+   
+    if (isActive) {
+        bikeparkoccupancy = '16';
+        bikeparkavailabe = '04'; 
+       className += ' parking-bike-content_toggle';
+    } 
   
    
     
      return  <>
  
-     <WidgetWrapper>  
-  
+     <WidgetWrapper>   
  
          <div className="parking-analytics_widget">
  
@@ -152,8 +157,7 @@ export const Parkingbike_Widget:React.FunctionComponent<IParkingProps> = (props)
                  ]}
                  value={toggleFilterValue}
                  onChange={(value) => { setToggleFilterValue(value) }}
-             />
- 
+             /> 
              </div>
  
          </TitleBar>
@@ -162,29 +166,28 @@ export const Parkingbike_Widget:React.FunctionComponent<IParkingProps> = (props)
  
          {/* <div className="parking-content parking-bike-content">*/}
 
-         <div className={`parking-content parking-bike-content ${isActive ? 'parking-bike-content_toggle': null}`} onClick={toggleClass}>
+         {/* <div className={`parking-content parking-bike-content ${isActive ? 'parking-bike-content_toggle': null}`} onClick={toggleClass}> */}
   
+         <div className={className} onClick={toggleClass}>
+
                  <div className="parking-lft">
  
-                     <div className="parking-slot"> 
- 
-                     {/* <Title /> */}
-                         <h4>11</h4>
-                         <p>Available</p> 
- 
+                     <div className="parking-slot">  
+                         <h4>{bikeparkoccupancy}</h4> 
+                         <p>Available</p>  
                      </div> 
  
  
                      <div className="parking-vehicle">
-                             <div className="vehicle-icon"></div> 
+                          <div className="vehicle-icon"></div> 
                      </div> 
  
                  </div>
  
                  <div className="parking-rgt">
  
-                     <div className="parking-slot"> 
-                         <h4>22</h4>
+                     <div className="parking-slot">  
+                         <h4>{bikeparkavailabe}</h4>  
                          <p>Available</p> 
                      </div> 
  
